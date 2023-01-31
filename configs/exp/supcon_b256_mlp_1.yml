@@ -1,0 +1,13 @@
+model:
+  type: 'simclr'
+  mlp_dim: 2048
+  infonce_weight: 0.0
+  vicreg_weight: 1.0
+  barlowtwins_weight: 0.0
+  embeddings_losses: [false, true, false]
+training:
+  batch_size: 128
+data:
+  train: '/media/user/Samsung_T5/sslsv/data/vox2_npy_list'
+  wav_augment:
+    enable: true

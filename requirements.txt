@@ -1,0 +1,13 @@
+numpy
+
+soundfile
+sklearn
+tensorboard
+wandb
+librosa
+
+ruamel.yaml
+dacite
+prettyprinter
+tqdm
+python-dotenv
