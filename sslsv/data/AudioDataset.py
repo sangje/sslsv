@@ -44,7 +44,7 @@ class AudioDataset(Dataset):
 
     # For Wav file load
     def load_wav(self, data):
-        data_ = librosa.load(data,sr=None)
+        data_ = librosa.load(data,sr=22050)
 
         return data_
 
