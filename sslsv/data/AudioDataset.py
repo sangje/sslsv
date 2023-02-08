@@ -6,6 +6,8 @@ from torch.utils.data import Dataset
 
 from sslsv.data.AudioAugmentation import AudioAugmentation
 
+import librosa
+
 class AudioDataset(Dataset):
 
     def __init__(self, config):
@@ -40,6 +42,11 @@ class AudioDataset(Dataset):
         
         return data_
 
+    # For Wav file load
+    def load_wav(self, data):
+        data_ = librosa.load(data,sr=None)
+
+        return data_
 
     def __getitem__(self, i):
         #global X
@@ -55,7 +62,9 @@ class AudioDataset(Dataset):
         ), axis=0)
         X = torch.FloatTensor(X)
         '''
-        X = self.load_npy(self.files[i])
+
+        #X = self.load_npy(self.files[i])
+        X = self.load_wav(self.files[i])
 
         y = self.labels[i]
 
