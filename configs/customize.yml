@@ -1,6 +1,6 @@
 model:
   type: 'simclr'
-  enable_mlp: False  # Projector 조절
+  enable_mlp: True  # Projector 조절
   mlp_dim: 1024
   infonce_weight: 1.0
   vicreg_weight: 1.0
