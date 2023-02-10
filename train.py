@@ -20,10 +20,10 @@ def train(args):
     #GPU_NUM = 0,1,2
     #device = torch.device(f'cuda:{GPU_NUM}' if torch.cuda.is_available() else 'cpu')
 
-    #device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    #model = load_model(config).to(device)
-    model = load_model(config).to("cuda")
+    model = load_model(config).to(device)
+    #model = load_model(config).to("cuda")
     model = torch.nn.DataParallel(model)
 
     trainer = Trainer(
@@ -31,7 +31,7 @@ def train(args):
         train_dataloader=train_dataloader,
         config=config,
         checkpoint_dir=checkpoint_dir
-        #device=device
+        device=device
     )
     trainer.start()
 

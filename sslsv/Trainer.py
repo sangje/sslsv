@@ -27,13 +27,13 @@ class Trainer:
         train_dataloader,
         config,
         checkpoint_dir
-        #device
+        device
     ):
         self.model = model
         self.train_dataloader = train_dataloader
         self.config = config
         self.checkpoint_dir = checkpoint_dir
-        #self.device = device
+        self.device = device
 
         self.best_metric = (
             float('-inf')
@@ -47,11 +47,11 @@ class Trainer:
 
         for i, (x, y) in enumerate(self.train_dataloader):
             print(x.shape,y.shape)
-            #x = x.to(self.device)
-            #y = y.to(self.device)
+            x = x.to(self.device)
+            y = y.to(self.device)
             #print(x.shape)
-            x = x.to("cuda")
-            y = y.to("cuda")
+            #x = x.to("cuda")
+            #y = y.to("cuda")
 
             #x_1 = x[:, 0, :]
             #x_2 = x[:, 1, :]
