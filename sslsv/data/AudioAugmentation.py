@@ -19,7 +19,7 @@ class AudioAugmentation:
         self.rir_files = glob.glob(self.rir_path)
 
         self.musan_files = {}
-        self.musan_path = os.path.join(base_path, 'musan_split', '*/*/*/*.wav')
+        self.musan_path = os.path.join(base_path, 'musan_split/*/*/*.wav')
         for file in glob.glob(self.musan_path):
             category = file.split(os.sep)[-4]
             if not category in self.musan_files:
