@@ -19,14 +19,14 @@ def train(args):
     os.environ["CUDA_VISIBLE_DEVICES"]= "0,1,2,3"
     #device = torch.device('cuda:0,1,2') if torch.cuda.is_available() else torch.device('cpu')
     #GPU_NUM = 0,1,2
-    #device = torch.device(f'cuda:{GPU_NUM}' if torch.cuda.is_available() else 'cpu')
-
+    #device = torch.device(f'cuda:{GPU_NUM}' if torch.cuda.is_available() else 'cpu'
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    model = load_model(config).to(device)
+    model = load_model(config)
     #model = load_model(config).to("cuda")
     model = torch.nn.DataParallel(model)
     print(dist.is_available(),dist.is_initialized())
+
     trainer = Trainer(
         model=model,
         train_dataloader=train_dataloader,
