@@ -16,4 +16,4 @@ data:
   wav_augment:
     enable: True
     musan: True
-    rir: True
+    rir: False
