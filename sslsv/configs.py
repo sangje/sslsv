@@ -30,8 +30,8 @@ class DataConfig:
     wav_augment: WavAugmentConfig = None
     frame_length: int = 32000
     max_samples: int = None
-    train: str = '/media/user/Samsung_T5/sslsv/data/voxceleb1'
-    trials: str = './data/vox1_test_trials'
+    train: str = './data/voxceleb1'
+    trials: str = './data/trials'
     base_path: str = './data/'
     enable_cache: bool = False
     num_workers: int = 0
