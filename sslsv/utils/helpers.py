@@ -13,7 +13,7 @@ import torch.distributed as dist
 from torch.utils.data import DataLoader
 
 from sslsv.configs import Config
-from sslsv.data.AudioDataset import AudioDataset
+from sslsv.data.AudioDataset1 import AudioDataset
 from sslsv.data.SupervisedSampler import SupervisedSampler
 from sslsv.utils.distributed import is_main_process
 
