@@ -9,6 +9,7 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
+import torch.distributed as dist
 
 def train(args):
     config, checkpoint_dir = load_config(args.config)
@@ -25,12 +26,12 @@ def train(args):
     model = load_model(config).to(device)
     #model = load_model(config).to("cuda")
     model = torch.nn.DataParallel(model)
-
+    print(dist.is_available(),dist.is_initialized())
     trainer = Trainer(
         model=model,
         train_dataloader=train_dataloader,
         config=config,
-        checkpoint_dir=checkpoint_dir
+        checkpoint_dir=checkpoint_dir,
         device=device
     )
     trainer.start()
