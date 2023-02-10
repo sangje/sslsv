@@ -25,6 +25,8 @@ def train(args):
     model = load_model(config)
     #model = load_model(config).to("cuda")
     model = torch.nn.DataParallel(model)
+    model.to(device)
+    
     print(dist.is_available(),dist.is_initialized())
 
     trainer = Trainer(
