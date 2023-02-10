@@ -46,6 +46,7 @@ class Trainer:
         self.last_progress = 0
 
         for i, (x, y) in enumerate(self.train_dataloader):
+            print(x.shape,y.shape)
             #x = x.to(self.device)
             #y = y.to(self.device)
             #print(x.shape)
@@ -244,7 +245,7 @@ class Trainer:
             print()
             print('=' * 10, 'Training', '=' * 10)
             print(f'Distributed: {"yes" if is_dist_initialized() else "no"}')
-            #print(f'Device: {self.device}')
+            print(f'Device: {self.device}')
             print(f'Number of batches: {len(self.train_dataloader)}')
             print(f'Resuming: {"no" if checkpoint is None else "yes"}')
             print(f'Checkpoint: {self.checkpoint_dir}')

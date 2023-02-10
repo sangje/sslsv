@@ -14,6 +14,6 @@ data:
   train: 'data/voxceleb2_train_list'
   #train: '/media/nextgen/Samsung_T5/sslsv/data/sm_npy_list'
   wav_augment:
-    enable: False
-    musan: False
-    rir: False
+    enable: True
+    musan: True
+    rir: True
