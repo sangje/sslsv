@@ -34,7 +34,7 @@ class DataConfig:
     trials: str = './data/vox1_test_trials'
     base_path: str = './data/'
     enable_cache: bool = False
-    num_workers: int = 8
+    num_workers: int = 0
     pin_memory: bool = False
 
 
