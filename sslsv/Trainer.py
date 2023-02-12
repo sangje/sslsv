@@ -46,7 +46,6 @@ class Trainer:
         self.last_progress = 0
 
         for i, (x, y) in enumerate(self.train_dataloader):
-            print(x.shape,y.shape)
             x = x.to(self.device)
             y = y.to(self.device)
             #print(x.shape)

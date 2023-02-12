@@ -16,7 +16,6 @@ class AudioPreEmphasis(nn.Module):
 
     def forward(self, audio):
         audio = audio.unsqueeze(1)
-        print("For error detection:",audio.shape)
         audio = F.pad(audio, (1, 0), 'reflect')
         return F.conv1d(audio, self.w.to(audio.device)).squeeze(1)
 
