@@ -112,7 +112,7 @@ class AudioDataset(Dataset):
 
         np.save(self.files[i][:-3]+'npy',X)
         print(self.files[i], "           save")
-        #return X, y
+        return X, y
 
 
 class AudioDataset111111(Dataset):

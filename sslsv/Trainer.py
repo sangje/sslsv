@@ -26,7 +26,7 @@ class Trainer:
         model,
         train_dataloader,
         config,
-        checkpoint_dir
+        checkpoint_dir,
         device
     ):
         self.model = model
