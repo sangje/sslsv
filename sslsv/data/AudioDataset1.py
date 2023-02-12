@@ -109,9 +109,10 @@ class AudioDataset(Dataset):
         if X.shape[1] != 32000:
             print(ad[-1], " error    size : ", X.shape[1])
         '''
+        # Wav file 을 npy File로 저장하는 코드
+        #np.save(self.files[i][:-3]+'npy',X)
+        #print(self.files[i], "           save")
 
-        np.save(self.files[i][:-3]+'npy',X)
-        print(self.files[i], "           save")
         return X, y
 
 
