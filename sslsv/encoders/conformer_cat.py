@@ -88,7 +88,7 @@ class Conformer(torch.nn.Module):
         return x
 
 def conformer_cat(n_mels=80, num_blocks=6, output_size=256, 
-        embedding_dim=192, input_layer="conv2d", pos_enc_layer_type="rel_pos"):
+        embedding_dim=1024, input_layer="conv2d", pos_enc_layer_type="rel_pos"):
     model = Conformer(n_mels=n_mels, num_blocks=num_blocks, output_size=output_size, 
             embedding_dim=embedding_dim, input_layer=input_layer, pos_enc_layer_type=pos_enc_layer_type)
     return model
