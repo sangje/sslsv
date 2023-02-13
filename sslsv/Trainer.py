@@ -46,14 +46,18 @@ class Trainer:
         self.last_progress = 0
 
         for i, (x, y) in enumerate(self.train_dataloader):
+            
+            print(f'Batch Number {i} is Processing...')
+            
             x = x.to(self.device)
             y = y.to(self.device)
-            #print(x.shape)
+            print('x and y shape',x.shape,y.shape)
             #x = x.to("cuda")
             #y = y.to("cuda")
 
             x_1 = x[:, 0, :]
             x_2 = x[:, 1, :]
+            print('x_1 and x_2 shape',x_1.shape,x_2.shape)
             #x_1 = x[:, :64, :]
             #x_2 = x[:, 64:, :]
             #print(x_1.shape)
@@ -64,7 +68,8 @@ class Trainer:
                 z_2 = self.model(x_2, training=True)
 
                 loss, metrics = self.model.module.compute_loss(z_1, z_2)
-                #print(loss, metrics)
+                print('z_1 and z_2 shape',z_1.shape,z_2.shape)
+                print('loss :',loss, 'metrics :',metrics)
 
             # Update metrics (average for epoch)
             if not train_metrics:
