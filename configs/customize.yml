@@ -8,7 +8,7 @@ model:
   representations_losses: [false, True, false] # infonce / Vicreg / barlowtwins
   embeddings_losses: [True, false, false]
 training:
-  batch_size: 128
+  batch_size: 16
   max_samples: 500
 data:
   train: 'data/voxceleb1_npy_train_list'
