@@ -33,9 +33,9 @@ class DataConfig:
     train: str = './data/voxceleb1'
     trials: str = './data/trials'
     base_path: str = './data/'
-    enable_cache: bool = True
+    enable_cache: bool = False
     num_workers: int = 8
-    pin_memory: bool = False
+    pin_memory: bool = True
 
 
 @dataclass
