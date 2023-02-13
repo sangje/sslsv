@@ -34,7 +34,7 @@ class DataConfig:
     trials: str = './data/trials'
     base_path: str = './data/'
     enable_cache: bool = True
-    num_workers: int = 4
+    num_workers: int = 8
     pin_memory: bool = True
 
 
