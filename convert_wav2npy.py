@@ -1,11 +1,11 @@
 import os
 import numpy as np
-import soundfile as sf
+import librosa
 import glob
 
 def convert_wav_to_npy(filename):
       if filename.endswith(".wav"):
-          audio, sr = sf.read(filename)
+          audio, sr = librosa.load(filename)
           npy_filename = os.path.splitext(filename)[0] + ".npy"
           np.save(npy_filename, audio)
           print(f"Converted {filename} to {npy_filename}")
