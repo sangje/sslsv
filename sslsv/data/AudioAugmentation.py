@@ -15,11 +15,11 @@ class AudioAugmentation:
     def __init__(self, config, base_path):
         self.config = config
 
-        self.rir_path = os.path.join(base_path, 'RIRS_NOISES', '*/*/*/*.wav')
+        self.rir_path = os.path.join(base_path, 'simulated_rirs', '*/*/*.wav')
         self.rir_files = glob.glob(self.rir_path)
 
         self.musan_files = {}
-        self.musan_path = os.path.join(base_path, 'musan_split/*/*/*.wav')
+        self.musan_path = os.path.join(base_path, 'musan_split','*/*/*.wav')
         for file in glob.glob(self.musan_path):
             category = file.split(os.sep)[-3]
             if not category in self.musan_files:
