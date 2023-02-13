@@ -2,6 +2,8 @@ import torch
 from torch.utils.data import DataLoader
 import torchaudio
 import time
+import warnings
+warnings.filterwarnings('ignore')
 
 yesno_data = torchaudio.datasets.YESNO('.', download=False)
 
@@ -18,10 +20,10 @@ def collate_fn(batch):
 
 pin_memory = False
 print('pin_memory is', pin_memory)
-for num_workers in range(0, 20, 1): 
+for num_workers in range(0, 32, 1): 
     data_loader = torch.utils.data.DataLoader(
                                                 yesno_data,
-                                                batch_size=16,
+                                                batch_size=32,
                                                 pin_memory=pin_memory,
                                                 num_workers=num_workers,
                                                 collate_fn=collate_fn)
@@ -34,10 +36,10 @@ for num_workers in range(0, 20, 1):
 
 pin_memory = True
 print('pin_memory is', pin_memory)
-for num_workers in range(0, 20, 1): 
+for num_workers in range(0, 32, 1): 
     data_loader = torch.utils.data.DataLoader(
                                                 yesno_data,
-                                                batch_size=16,
+                                                batch_size=32,
                                                 pin_memory=pin_memory,
                                                 num_workers=num_workers,
                                                 collate_fn=collate_fn)
