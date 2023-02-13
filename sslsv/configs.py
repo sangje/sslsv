@@ -35,7 +35,7 @@ class DataConfig:
     base_path: str = './data/'
     enable_cache: bool = True
     num_workers: int = 8
-    pin_memory: bool = True
+    pin_memory: bool = False
 
 
 @dataclass
