@@ -68,7 +68,7 @@ class Trainer:
                 z_2 = self.model(x_2, training=True)
 
                 loss, metrics = self.model.module.compute_loss(z_1, z_2)
-                print('z_1 and z_2 shape',z_1.shape,z_2.shape)
+                print('z_1 and z_2 shape',len(z_1),len(z_2))
                 print('loss :',loss, 'metrics :',metrics)
 
             # Update metrics (average for epoch)
