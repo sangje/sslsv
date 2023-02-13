@@ -5,7 +5,7 @@ from typing import Tuple
 @dataclass
 class TrainingConfig:
     epochs: int = 100
-    batch_size: int = 32
+    batch_size: int = 16
     learning_rate: float = 0.0001
     patience: int = 100
     tracked_metric: str = 'test_eer'
@@ -34,7 +34,7 @@ class DataConfig:
     trials: str = './data/trials'
     base_path: str = './data/'
     enable_cache: bool = True
-    num_workers: int = 8
+    num_workers: int = 4
     pin_memory: bool = True
 
 
