@@ -11,7 +11,7 @@ training:
   batch_size: 256
   max_samples: 500
 data:
-  train: 'data/voxceleb2_train_list'
+  train: 'data/voxceleb1_train_list'
   #train: '/media/nextgen/Samsung_T5/sslsv/data/sm_npy_list'
   wav_augment:
     enable: True
