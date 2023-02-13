@@ -48,6 +48,7 @@ TRIALS_URL      = 'https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/veri_test
 TRIALS_FILENAME = 'trials'
 VOX1_TRAIN_LIST = 'voxceleb1_train_list'
 VOX2_TRAIN_LIST = 'voxceleb2_train_list'
+VOX1_NPY_TRAIN_LIST = 'voxceleb1_npy_train_list'
 
 
 def get_md5(path):
@@ -164,7 +165,7 @@ def create_vox1_npy_train_list_file():
 
     files = glob.glob('voxceleb1/*/*/*.wav')
     files.sort()
-    out_file = open(VOX1_TRAIN_LIST, 'w')
+    out_file = open(VOX1_NPY_TRAIN_LIST, 'w')
     for file in files:
         spkr_id = file.split('/')[-3]
         file = '/'.join(file.split('/')[-3:])

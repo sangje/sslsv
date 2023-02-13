@@ -2,6 +2,7 @@ import os
 import numpy as np
 import librosa
 import glob
+import tqdm
 
 def convert_wav_to_npy(filepath):
       if filepath.endswith(".wav"):
@@ -16,5 +17,5 @@ def convert_wav_to_npy(filepath):
         print(f'{filepath} file does not exist...')
 
 if __name__ == "__main__":
-  for file in glob.glob("data/voxceleb1/**/*.wav",recursive=True):
+  for file in tqdm(glob.glob("data/voxceleb1/**/*.wav",recursive=True)):
     convert_wav_to_npy(file)
