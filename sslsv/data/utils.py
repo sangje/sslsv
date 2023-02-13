@@ -37,8 +37,12 @@ def read_audio(path):
             #return sf.read(BytesIO(AudioCache.data[path]))
         else:
             raise Exception(f'File {path} was not cached')
-    audio, sr = librosa.load(path, sr=22050)
-
+    
+    # 확장자에 따라 다르게 로드함.
+    if path.endswith(".wav"):
+        audio, sr = librosa.load(path, sr=22050)
+    elif path.endswith(".npy"):
+        audio = np.load(path)
     return audio
 
 def load_audio(path, frame_length, num_frames=1, min_length=None):

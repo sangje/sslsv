@@ -152,6 +152,30 @@ def split_2_ssd():
         shutil.copytree(src, dst)
 
 
+def create_vox1_npy_train_list_file():
+    test_speakers = set()
+    with open(TRIALS_FILENAME) as trials:
+        for line in trials.readlines():
+            parts = line.rstrip().split()
+            spkr_id_a = parts[1].split('/')[0]
+            spkr_id_b = parts[2].split('/')[0]
+            test_speakers.add(spkr_id_a)
+            test_speakers.add(spkr_id_b)
+
+    files = glob.glob('voxceleb1/*/*/*.wav')
+    files.sort()
+    out_file = open(VOX1_TRAIN_LIST, 'w')
+    for file in files:
+        spkr_id = file.split('/')[-3]
+        file = '/'.join(file.split('/')[-3:])
+        file = os.path.join('voxceleb1', file)
+        # .wav 이 아닌 .npy 로 저장.
+        file = file.replace('.wav','.npy')
+        if spkr_id not in test_speakers:
+            out_file.write(spkr_id + ' ' + file + '\n')
+    out_file.close()
+
+
 def create_vox1_train_list_file():
     test_speakers = set()
     with open(TRIALS_FILENAME) as trials:
@@ -186,6 +210,7 @@ def create_vox2_train_list_file():
     out_file.close()
 
 
+
 def download_trials_file():
     status = subprocess.call('wget %s -O %s' % (TRIALS_URL, TRIALS_FILENAME), shell=True)
     if status != 0:
@@ -215,3 +240,4 @@ if __name__ == "__main__":
     download_trials_file()
     create_vox1_train_list_file()
     create_vox2_train_list_file()
+    create_vox1_npy_train_list_file()
