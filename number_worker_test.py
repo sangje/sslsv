@@ -28,7 +28,7 @@ for num_workers in range(0, 20, 1):
     start = time.time()
     for epoch in range(1, 5):
         for i, (data, _) in enumerate(data_loader):
-            torch.tensor(data,'cuda')
+            torch.tensor(data).to('cuda')
     end = time.time()
     print("Finish with:{} second, num_workers={}".format(end - start, num_workers))
 
@@ -44,6 +44,6 @@ for num_workers in range(0, 20, 1):
     start = time.time()
     for epoch in range(1, 5):
         for i, (data, _) in enumerate(data_loader):
-            torch.tensor(data,'cuda')
+            torch.tensor(data).to('cuda')
     end = time.time()
     print("Finish with:{} second, num_workers={}".format(end - start, num_workers))
