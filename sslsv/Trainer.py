@@ -16,7 +16,7 @@ from sslsv.utils.evaluate import extract_embeddings, evaluate
 from sslsv.utils.distributed import is_main_process, is_dist_initialized
 
 import warnings
-import tqdm
+from tqdm import tqdm
 
 warnings.filterwarnings('ignore')
 
@@ -46,7 +46,7 @@ class Trainer:
         train_metrics = {}
         self.last_progress = 0
 
-        for i, (x, y) in enumerate(tqdm(self.train_dataloader)):
+        for i, (x, y) in enumerate(tqdm.tqdm(self.train_dataloader)):
             
             #print(f'Batch Number {i} is Processing...')
             
