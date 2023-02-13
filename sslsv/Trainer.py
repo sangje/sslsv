@@ -46,7 +46,7 @@ class Trainer:
         train_metrics = {}
         self.last_progress = 0
 
-        for i, (x, y) in enumerate(tqdm.tqdm(self.train_dataloader)):
+        for i, (x, y) in enumerate(tqdm(self.train_dataloader)):
             
             #print(f'Batch Number {i} is Processing...')
             
