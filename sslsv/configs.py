@@ -5,7 +5,7 @@ from typing import Tuple
 @dataclass
 class TrainingConfig:
     epochs: int = 100
-    batch_size: int = 16
+    batch_size: int = 32
     learning_rate: float = 0.0001
     patience: int = 100
     tracked_metric: str = 'test_eer'
